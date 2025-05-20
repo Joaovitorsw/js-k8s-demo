@@ -6,10 +6,9 @@ resources:
   - configmap.yaml
   - hpa.yaml
   - secret.yaml
-
+  - ingress.yaml
 patches:
   - path: ./patches/rollouts.yaml
-  - path: ./patches/ingress.yaml
 
 transformers:
   - ./kustomizeconfig/namesuffixtransformer.yaml
