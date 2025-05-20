@@ -6,7 +6,6 @@ resources:
   - configmap.yaml
   - hpa.yaml
   - secret.yaml
-  - ingress-nginx.yaml
 
 namespace: financial-dev
 
