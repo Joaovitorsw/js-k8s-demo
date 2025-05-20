@@ -7,7 +7,6 @@ resources:
   - hpa.yaml
   - secret.yaml
   - ingress-nginx.yaml
-  - swagger-nginx-ingress.yaml
 
 namespace: financial-dev
 
