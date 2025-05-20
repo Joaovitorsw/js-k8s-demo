@@ -45,3 +45,18 @@ app.get("/api/message", (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Backend running and listening on port ${PORT}`);
 });
+app.get("/api/env", (req, res) => {
+  const envKeys = Object.keys(process.env).filter(
+    (key) =>
+      // filtra só os que você sabe que vêm do secret, por prefixo ou nome
+      key.startsWith("PASSWORD") || key.startsWith("SECRET_")
+  );
+
+  const result = {};
+  envKeys.forEach((key) => {
+    result[key] = process.env[key];
+  });
+
+  console.log("🔐 Exposing environment variables from secret:", result);
+  res.json(result);
+});
