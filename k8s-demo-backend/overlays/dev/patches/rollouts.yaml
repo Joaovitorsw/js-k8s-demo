@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: k8s-demo-backend
-          image: nginx
+          image: k8s-demo-backend:latest
           ports:
             - containerPort: 80

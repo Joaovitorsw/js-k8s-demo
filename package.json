@@ -1,9 +1,9 @@
 {
   "name": "k8s-demo-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app-js-k8s-demo.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node app-js-k8s-demo.js"
   },
   "dependencies": {
     "express": "^4.18.2"
