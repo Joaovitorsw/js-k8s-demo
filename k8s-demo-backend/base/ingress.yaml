@@ -6,13 +6,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: k8s-demo-backend.local
+    - host: k8s-demo.local
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: k8s-demo-backend
+                name: k8s-demo-backend-dev
                 port:
-                  number: 80
+                  number: 3000
