@@ -1,0 +1,13 @@
+apiVersion: builtin
+kind: PatchTransformer
+metadata:
+  name: dd-transformer
+target:
+  name: .*
+  kind: Rollout
+patch: |-
+  - op: add 
+    path: /spec/template/spec/containers/0/env/- 
+    value: 
+      name: DD_VERSION 
+      value: "__DD_VERSION__"
