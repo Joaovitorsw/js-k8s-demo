@@ -6,10 +6,6 @@ resources:
   - configmap.yaml
   - hpa.yaml
   - secret.yaml
-  - ingress-nginx.yaml
-  - swagger-nginx-ingress.yaml
-
-namespace: k8s-demo-prod
 
 patches:
   - path: ./patches/rollouts.yaml

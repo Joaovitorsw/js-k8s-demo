@@ -9,8 +9,6 @@ resources:
   - ingress-nginx.yaml
   - swagger-nginx-ingress.yaml
 
-namespace: k8s-demo-qa
-
 patches:
   - path: ./patches/rollouts.yaml
   - path: ./patches/ingress.yaml

@@ -7,8 +7,6 @@ resources:
   - hpa.yaml
   - secret.yaml
 
-namespace: k8s-demo-dev
-
 patches:
   - path: ./patches/rollouts.yaml
   - path: ./patches/ingress.yaml
