@@ -1,19 +1,4 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: k8s-demo-backend
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: k8s-demo-backend
-  template:
-    metadata:
-      labels:
-        app: k8s-demo-backend
-    spec:
-      containers:
-        - name: k8s-demo-backend
-          image: nginx
-          ports:
-            - containerPort: 80
