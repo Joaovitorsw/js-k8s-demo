@@ -2,7 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: k8s-demo-backend-ingress
-  namespace: k8s-demo-dev
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
