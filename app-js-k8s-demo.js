@@ -5,9 +5,29 @@ const PORT = process.env.PORT || 3000;
 // Log inicial
 console.log("🔥 Starting backend container...");
 
-// Middleware para logar cada requisição
+// Middleware para parsear JSON (caso você envie body POST futuramente)
+app.use(express.json());
+
+// Log detalhado por requisição
 app.use((req, res, next) => {
-  console.log(`📥 [${new Date().toISOString()}] ${req.method} ${req.url}`);
+  const start = Date.now();
+
+  // Continua a execução e intercepta a resposta
+  res.on("finish", () => {
+    const duration = Date.now() - start;
+
+    console.log(`
+📥 [${new Date().toISOString()}] ${req.method} ${req.originalUrl}
+🧠 Headers: ${JSON.stringify(req.headers, null, 2)}
+📦 Query: ${JSON.stringify(req.query)}
+🧾 Body: ${JSON.stringify(req.body)}
+📡 IP: ${req.ip}
+⏱ Tempo de resposta: ${duration}ms
+🔚 Status: ${res.statusCode}
+---------------------------------------------
+    `);
+  });
+
   next();
 });
 
@@ -16,8 +36,9 @@ app.use(express.static("public"));
 
 // Endpoint principal
 app.get("/api/message", (req, res) => {
-  console.log("💬 Responding with backend message...");
-  res.json({ message: "Hello from backend 👋" });
+  const response = { message: "Hello from backend 👋" };
+  console.log("💬 Responding with:", response);
+  res.json(response);
 });
 
 // Inicialização do servidor
