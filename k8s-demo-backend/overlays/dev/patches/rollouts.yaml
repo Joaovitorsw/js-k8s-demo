@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: apps/v1
 kind: Rollout
 metadata:
   name: k8s-demo-backend
