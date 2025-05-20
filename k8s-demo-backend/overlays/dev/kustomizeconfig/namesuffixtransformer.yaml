@@ -10,5 +10,3 @@ fieldSpecs:
     path: metadata/name
   - kind: Rollout
     path: metadata/name
-  - kind: Rollout
-    path: spec/template/spec/containers/name
