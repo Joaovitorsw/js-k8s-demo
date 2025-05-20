@@ -16,4 +16,4 @@ spec:
         - name: k8s-demo-backend
           image: k8s-demo-backend:latest
           ports:
-            - containerPort: 80
+            - containerPort: 3000
