@@ -7,7 +7,7 @@ resources:
   - hpa.yaml
   - secret.yaml
 
-namespace: financial-dev
+namespace: k8s-demo-dev
 
 patches:
   - path: ./patches/rollouts.yaml

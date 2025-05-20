@@ -9,7 +9,7 @@ resources:
   - ingress-nginx.yaml
   - swagger-nginx-ingress.yaml
 
-namespace: financial-qa
+namespace: k8s-demo-qa
 
 patches:
   - path: ./patches/rollouts.yaml

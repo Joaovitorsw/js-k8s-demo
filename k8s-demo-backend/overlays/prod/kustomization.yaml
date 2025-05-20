@@ -9,7 +9,7 @@ resources:
   - ingress-nginx.yaml
   - swagger-nginx-ingress.yaml
 
-namespace: financial-prod
+namespace: k8s-demo-prod
 
 patches:
   - path: ./patches/rollouts.yaml
