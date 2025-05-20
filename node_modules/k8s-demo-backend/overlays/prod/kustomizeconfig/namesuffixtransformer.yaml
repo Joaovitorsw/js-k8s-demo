@@ -1,0 +1,14 @@
+apiVersion: builtin
+kind: PrefixSuffixTransformer
+metadata:
+  name: customPrefixer
+suffix: -prod
+fieldSpecs:
+  - kind: Ingress
+    path: metadata/name
+  - kind: Service
+    path: metadata/name
+  - kind: Rollout
+    path: metadata/name
+  - kind: Rollout
+    path: spec/template/spec/containers/name

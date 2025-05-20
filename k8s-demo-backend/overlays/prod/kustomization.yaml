@@ -11,19 +11,14 @@ patches:
   - path: ./patches/rollouts.yaml
   - path: ./patches/ingress.yaml
 
-commonAnnotations:
-  gitlab.com/pipeline_id: "__PIPELINE_ID__"
-  gitlab.com/project_id: "__PROJECT_ID__"
-  rollouts/flag: v1
-
 transformers:
   - ./kustomizeconfig/namesuffixtransformer.yaml
   - ./kustomizeconfig/dd-transformer.yaml
 
 images:
   - name: IMAGE_NAME/PATH:TAG
-    newName: __REGISTRY__/__APP_PATH__
-    newTag: __GIT_SHA__
+    newName: k8s-demo-backend
+    newTag: latest
 
 labels:
   - includeSelectors: true

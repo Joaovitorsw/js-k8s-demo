@@ -4,15 +4,21 @@ metadata:
   name: k8s-demo-backend-hpa
 spec:
   scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
-    name: k8s-demo-backend
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: k8s-demo-backend-prod
   minReplicas: 1
   maxReplicas: 3
   metrics:
     - type: Resource
       resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 70
+          averageUtilization: 80

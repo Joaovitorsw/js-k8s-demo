@@ -1,9 +1,9 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: k8s-demo-backend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: k8s-demo-backend
@@ -14,6 +14,25 @@ spec:
     spec:
       containers:
         - name: k8s-demo-backend
-          image: nginx
+          image: "k8s-demo-backend:latest"
+          imagePullPolicy: Never
           ports:
-            - containerPort: 80
+            - containerPort: 3000
+          env: []
+          resources:
+            limits:
+              cpu: 500m
+              memory: 2500Mi
+            requests:
+              cpu: 200m
+              memory: 1500Mi
+          envFrom:
+            - secretRef:
+                name: k8s-demo-backend-secret
+  strategy:
+    canary:
+      steps:
+        - setWeight: 50
+        - pause:
+            duration: 10s
+        - setWeight: 100
